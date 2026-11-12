@@ -1,0 +1,10 @@
+1 & local RFQ $r$ supplied by $U$ & $R{=}$\{A,L,PAY,S1,S2,U\}; $W{=}$\{U\} &  \\
+2 & send $r$ to $S_1$ (BF-2) & $R{=}$\{A,L,PAY,S1,S2,U\}; $W{=}$\{U\} & $S_1\in R(r)$ \checkmark \\
+3 & quote $q_1$ arrives (BF-3) & $R{=}$\{A,L,PAY,S1,U\}; $W{=}$\{S1,U\} & $\varepsilon_{S_1}\sqcup W{=}\{S_1\}\sqcup\rho_{S_1}$ \\
+4 & quote $q_2$ arrives (BF-3) & $R{=}$\{A,L,PAY,S2,U\}; $W{=}$\{S2,U\} & $\varepsilon_{S_2}\sqcup W{=}\{S_2\}\sqcup\rho_{S_2}$ \\
+5 & typed handles $p_i,d_i \leftarrow Q(q_i)$ (BF-6) & $\ell(p_i)=\ell(q_i)$ & values in $\tau$ \checkmark \\
+6 & $w,a \leftarrow \arg\min(p_1,p_2)$ (trusted code) & $R{=}$\{A,L,PAY,U\}; $W{=}$\{S1,S2,U\} & $w\in\{S_1,S_2\}$, $a\le 5000$ \\
+7 & \texttt{pay}$(w,a)$ from $c$ (BF-5) & $\lambda_c$: R=*; W={} & $W(\lambda_c)=\emptyset\subseteq T$; $w,a$ exempt; $PAY\in R$ \checkmark \\
+8 & branch $f \leftarrow (d_w\le 14)$ & $R{=}$\{A,L,PAY,S1,U\}; $W{=}$\{S1,U\} & $pc \leftarrow \ell(f)$ \\
+9 & \texttt{schedule\_pickup} under $pc$ (BF-5) & $pc$: R={A,L,PAY,S1,U}; W={S1,U} & $f$ is an exempt \texttt{bool} \checkmark \\
+10 & $P$ reads $q_2$'s notes, tries \texttt{email} (BF-1, BF-5) & $\lambda_c$: R={A,L,PAY,S2,U}; W={S2,U} & DENY: $S_2\in W(\lambda_c)$, $S_2\notin T$ \\

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper."
+title: "BorderFlow reference implementation"
+authors:
+  - family-names: Godakanda
+    given-names: Sunera
+version: 1.0.0
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Opacity Is Not Isolation: Boundary-Enforced Information-Flow Control for the Agent-to-Agent Protocol"
+  authors:
+    - family-names: Godakanda
+      given-names: Sunera
+  collection-title: "Proceedings of BuildSEC 2026"
+  year: 2026
